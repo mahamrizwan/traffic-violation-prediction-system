@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Risk Assessment Tool - Traffic AI</title>
+    <link rel="stylesheet" href="../static/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="tool-page">
+
+    <nav class="navbar">
+        <div class="logo">TRAFFIC <span>VIOLATION AI</span></div>
+        <div class="nav-links">
+            <a href="index.html" class="back-link">← Home</a>
+        </div>
+    </nav>
+
+    <main class="container">
+        <section class="tool-card">
+            <div class="card-header">
+                <h2>Priority Prediction Tool</h2>
+                <p>Analyze violation data to predict enforcement priority levels using Random Forest/Logistic Regression.</p>
+            </div>
+
+            <form class="risk-form" action="/predict" method="POST">
+                <div class="form-grid">
+                    <div class="input-group">
+                        <label>Fine Amount (PKR)</label>
+                        <input type="number" name="Fine_Amount_PKR" min="0" placeholder="e.g. 1000" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Hour of Day (0-23)</label>
+                        <input type="number" name="Hour_of_Day" min="0" max="23" placeholder="e.g. 14" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Time Period</label>
+                        <select name="Time_Period" required>
+                            <option value="Morning">Morning (6–12)</option>
+                            <option value="Afternoon">Afternoon (12–18)</option>
+                            <option value="Evening">Evening (18–24)</option>
+                            <option value="Night">Night (0–6)</option>
+                        </select>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Violation Level</label>
+                        <select name="Violation_Level" required>
+                            <option value="0">Low (0)</option>
+                            <option value="1">Medium (1)</option>
+                            <option value="2">High (2)</option>
+                        </select>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Payment Compliance (0 to 1)</label>
+                        <input type="number" name="Payment_Compliance" step="0.1" min="0" max="1" placeholder="0.0 - 1.0" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Total Violations</label>
+                        <input type="number" name="Total_Violations" min="0" placeholder="e.g. 5" required>
+                    </div>
+
+                    <div class="input-group">
+                        <label>Total Unpaid Fine (PKR)</label>
+                        <input type="number" name="Total_Unpaid" min="0" placeholder="e.g. 2500" required>
+                    </div>
+                </div>
+
+                <div class="form-footer">
+                    <button type="submit" class="btn btn-primary btn-full">🔍 Predict Priority</button>
+                    <button type="reset" class="btn btn-secondary">Reset</button>
+                </div>
+            </form>
+        </section>
+
+        {% if prediction %}
+        <section class="result-display">
+            <div class="main-result-card">
+                <div class="risk-details">
+                    <div class="tags">
+                        <span class="tag priority-{{ prediction|lower }}">{{ prediction }} PRIORITY</span>
+                    </div>
+                    <h3>Priority Level: {{ prediction }}</h3>
+                    <p>Prediction shows enforcement priority based on provided violation data.</p>
+                </div>
+            </div>
+
+            <div class="stats-grid">
+                <div class="mini-card">
+                    <span class="stat-label">Model Used</span>
+                    <span class="stat-value">Gradient Boosting Classifier</span>
+                </div>
+                <div class="mini-card">
+                    <span class="stat-label">Dataset Size</span>
+                    <span class="stat-value">82,700+ Records</span>
+                </div>
+            </div>
+        </section>
+        {% endif %}
+    </main>
+
+</body>
+</html>
