@@ -1,0 +1,318 @@
+/* --- Core Variables & Global Styling --- */
+:root {
+    --bg-color: #0a0c10;
+    --card-bg: #161a1f;
+    --primary-cyan: #00e5ff;
+    --text-main: #ffffff;
+    --text-dim: #94a3b8;
+    --font-family: 'Plus Jakarta Sans', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--bg-color) !important;
+    color: var(--text-main);
+    font-family: var(--font-family);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* --- Navigation --- */
+.navbar {
+    display: flex;
+    justify-content: center;
+    padding: 30px 5%;
+}
+
+.logo {
+    font-weight: 700;
+    font-size: 1.1rem;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.logo span {
+    color: var(--primary-cyan);
+    margin-left: 5px;
+}
+
+.nav-links {
+    position: absolute;
+    right: 8%;
+}
+
+.back-link {
+    color: var(--text-dim);
+    text-decoration: none;
+    font-size: 0.9rem;
+    transition: 0.3s;
+}
+
+.back-link:hover {
+    color: var(--primary-cyan);
+}
+
+/* --- Hero Section (Landing Page) --- */
+.hero {
+    text-align: center;
+    padding: 60px 5% 20px; /* Reduced bottom padding to close gap */
+}
+
+.badge {
+    display: inline-block;
+    padding: 6px 16px;
+    border: 1px solid rgba(0, 229, 255, 0.2);
+    color: var(--primary-cyan);
+    border-radius: 20px;
+    font-size: 0.65rem;
+    font-weight: 600;
+    margin-bottom: 25px;
+    background: rgba(0, 229, 255, 0.03);
+    letter-spacing: 1px;
+}
+
+h1 {
+    font-size: 3.8rem;
+    margin-bottom: 20px;
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: -1px;
+}
+
+.highlight {
+    color: var(--primary-cyan);
+}
+
+.subtitle {
+    color: var(--text-dim);
+    max-width: 600px;
+    margin: 0 auto 30px; /* Reduced margin */
+    font-size: 1.05rem;
+    font-weight: 300;
+}
+
+.cta-group {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px; /* Reduced gap to bring Overview closer */
+}
+
+/* --- Buttons --- */
+.btn {
+    text-decoration: none;
+    padding: 14px 32px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+    display: inline-block;
+    cursor: pointer;
+    border: none;
+}
+
+.btn-primary {
+    background-color: var(--primary-cyan);
+    color: #000;
+    box-shadow: 0 4px 15px rgba(0, 229, 255, 0.2);
+}
+
+.btn-secondary {
+    background-color: #1c2128;
+    color: #fff;
+    border: 1px solid #30363d;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    opacity: 0.9;
+}
+
+/* --- Project Overview Section (Centered Alignment) --- */
+.capabilities {
+    padding: 20px 8% 100px; /* Minimal top padding to reduce gap further */
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.section-intro {
+    margin-bottom: 40px;
+    width: 100%;
+}
+
+.section-intro h2 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+.section-intro p {
+    color: var(--text-dim);
+}
+
+/* --- Card Grid (Handles 3rd Card Centering) --- */
+.card-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 30px;
+    width: 100%;
+}
+
+.card {
+    background-color: var(--card-bg);
+    padding: 45px 35px;
+    border-radius: 16px;
+    border: 1px solid #2d333b;
+    transition: border 0.3s ease;
+    flex: 1 1 320px; 
+    max-width: 360px;
+    text-align: center;
+}
+
+.card:hover {
+    border-color: var(--primary-cyan);
+}
+
+.icon-box {
+    color: var(--primary-cyan);
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+}
+
+.card h3 {
+    margin-bottom: 15px;
+    font-size: 1.3rem;
+}
+
+.card p {
+    color: var(--text-dim);
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+/* --- Predict Tool Specific Layout --- */
+.tool-page .container {
+    max-width: 850px;
+    margin: 40px auto;
+    padding: 0 20px;
+}
+
+.tool-card {
+    background-color: var(--card-bg);
+    padding: 40px;
+    border-radius: 16px;
+    border: 1px solid #2d333b;
+    margin-bottom: 30px;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    text-align: left;
+}
+
+.input-group label {
+    font-size: 0.75rem;
+    color: var(--primary-cyan);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.input-group input, .input-group select {
+    background: #0d1117;
+    border: 1px solid #30363d;
+    padding: 12px;
+    border-radius: 8px;
+    color: white;
+    font-family: inherit;
+    outline: none;
+}
+
+.input-group input:focus {
+    border-color: var(--primary-cyan);
+}
+
+.form-footer {
+    display: flex;
+    gap: 15px;
+}
+
+.btn-full {
+    flex: 2;
+}
+
+/* --- Result Section --- */
+.main-result-card {
+    background: var(--card-bg);
+    padding: 30px;
+    border-radius: 16px;
+    border-left: 5px solid var(--primary-cyan);
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.tag {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 4px;
+    font-size: 0.7rem;
+    font-weight: 800;
+    margin-bottom: 10px;
+}
+
+/* Priority Status Colors */
+.priority-low { background: #1e3a2f; color: #4ade80; }
+.priority-medium { background: #3e3214; color: #fbbf24; }
+.priority-high { background: #4a2020; color: #f87171; }
+.priority-critical { background: #ff0000; color: #ffffff; animation: pulse 2s infinite; }
+
+@keyframes pulse {
+    0% { opacity: 1; }
+    50% { opacity: 0.7; }
+    100% { opacity: 1; }
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.mini-card {
+    background: var(--card-bg);
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid #2d333b;
+    text-align: center;
+}
+
+.stat-label {
+    display: block;
+    font-size: 0.7rem;
+    color: var(--text-dim);
+    margin-bottom: 5px;
+}
+
+.stat-value {
+    font-weight: 700;
+    color: var(--primary-cyan);
+}
